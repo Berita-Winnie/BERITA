@@ -1,9 +1,11 @@
 import React from 'react'
-import NavBar from '../components/LayoutComponents/NavBar'
-import FloatingButton from '../components/LayoutComponents/FloatingButton'
-
+import Hero from '../components/HomepageComponents/Hero'
 const HomePage = () => {
-  return <div></div>
+  return (
+    <>
+      <Hero />
+    </>
+  )
 }
 
 export default HomePage
