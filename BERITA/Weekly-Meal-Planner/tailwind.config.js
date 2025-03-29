@@ -9,6 +9,7 @@ export default {
       },
       fontFamily: {
         poppins: ['poppins', 'sans-serif'],
+        pacifico: ['Pacifico', 'cursive'],
       },
     },
   },
