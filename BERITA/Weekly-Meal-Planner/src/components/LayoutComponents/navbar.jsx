@@ -92,7 +92,7 @@ const NavBar = () => {
                   className={`block px-4 py-2 rounded-md transition-all duration-300 font-po 
         ${
           location.pathname === item.path
-            ? 'bg-gray-300 text-black shadow-md scale-105' // Selected state
+            ? 'bg-gray-300 text-black shadow-md scale-105'
             : 'bg-gray-300 text-gray-800 hover:bg-gray-200 hover:scale-105'
         }`}
                 >
@@ -114,8 +114,8 @@ const NavBar = () => {
                 to={item.path}
                 className={`px-3 py-2 transition-all duration-300 border-b-2 font-poppins${
                   location.pathname === item.path
-                    ? 'text-fontcolor border-[#fc595c] font-semibold' // Active page (Berita text color + red underline)
-                    : 'text-fontcolor border-transparent hover:border-[#fc595c]' // Inactive (Berita color, underline on hover)
+                    ? 'text-fontcolor border-active font-semibold'
+                    : 'text-fontcolor border-transparent hover:border-active'
                 }`}
               >
                 {item.name}
