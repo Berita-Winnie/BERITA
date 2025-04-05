@@ -3,12 +3,20 @@ import { format, addWeeks, subWeeks, addDays } from 'date-fns'
 
 const WeekSelector = () => {
   const [currentWeekStart, setCurrentWeekStart] = useState(new Date())
-  const [selectedDate, setSelectedDate] = useState(new Date())
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const storedDate = localStorage.getItem('selectedDate')
+    return storedDate ? new Date(storedDate) : new Date()
+  })
 
   const handleWeekChange = (direction) => {
     setCurrentWeekStart((prev) =>
       direction === 'next' ? addWeeks(prev, 1) : subWeeks(prev, 1)
     )
+  }
+
+  const handleDateSelect = (day) => {
+    setSelectedDate(day)
+    localStorage.setItem('selectedDate', day.toISOString())
   }
 
   return (
@@ -33,16 +41,16 @@ const WeekSelector = () => {
         </button>
       </div>
 
-      <div className=" p-2  grid grid-cols-7 gap-2 mt-4 w-full  md:px-2">
+      <div className=" p-4 grid grid-cols-7 gap-2 mt-4 w-full  md:px-2">
         {[...Array(7)].map((_, i) => {
           const day = addDays(currentWeekStart, i)
           return (
             <button
               key={i}
-              onClick={() => setSelectedDate(day)}
-              className={`px-1 md:px-4 text-sm font-medium rounded-full transition py-2
+              onClick={() => handleDateSelect(day)}
+              className={` px-2 md:px-4 text-sm font-medium rounded-full transition py-2
                 ${
-                  selectedDate.getTime() === day.getTime()
+                  selectedDate.toDateString() === day.toDateString()
                     ? 'bg-[#017371] text-white shadow-sm'
                     : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
                 }`}

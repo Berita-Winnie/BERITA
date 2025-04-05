@@ -1,10 +1,11 @@
 import React from 'react'
 import WeekSelector from '../components/MealplanningpageComponents/WeekSelector'
-import MealPlanHero from '../components/MealplanningpageComponents/MealPlanHero'
+import MealInputForm from '../components/MealplanningpageComponents/MealInputForm'
 const MealPlan = () => {
   return (
     <>
       <WeekSelector />
+      <MealInputForm />
     </>
   )
 }
