@@ -1,7 +1,12 @@
 import React from 'react'
+import MealList from '../components/ViewWeeklyplanComponents/MealList'
 
 const WeeklyView = () => {
-  return <div>WeeklyView</div>
+  return (
+    <div>
+      <MealList />
+    </div>
+  )
 }
 
 export default WeeklyView
